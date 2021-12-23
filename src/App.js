@@ -7,10 +7,10 @@ import axios from "axios";
 
 // css import
 import "./assets/css/style.css"
-import Header from "./components/Header";
 
 // all components import
-
+import Header from "./components/Header";
+import UploadForm from "./components/UploadForm";
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <UploadForm />
     </div>
   );
 }
