@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 
+// import components
+import ProgressBar from './ProgressBar'
+
 export default function UploadForm() {
 
     // state for file upload
@@ -32,6 +35,9 @@ export default function UploadForm() {
                     {/* show error */}
                     {
                         error && <div className='error text-danger'>{ error }</div>
+                    }
+                    {
+                        file && <ProgressBar />
                     }
                 </form>
             </div>
