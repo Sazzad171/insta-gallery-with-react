@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // import firebase config fle
-import { projectStorage } from '../firebase/config';
+import { projectStorage, projectFileStore } from '../firebase/config';
 
 const useStorage = (file) => {
   // state
@@ -12,6 +12,7 @@ const useStorage = (file) => {
   useEffect(() => {
     // references
     const storageRef = projectStorage.ref(file.name);
+    const collectionRef = projectFileStore.collection('images');
 
     // upload file and show progress
     storageRef.put(file).on('state_changed', (snap) => {
@@ -26,6 +27,8 @@ const useStorage = (file) => {
       
       // download url set
       const url = await storageRef.getDownloadURL();
+      // save on db
+      collectionRef.add({ url });
       setUrl(url);
 
     });

@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 
 // import components
-import ProgressBar from './ProgressBar'
+import ProgresBar from './ProgressBar'
+
+// icon import
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 export default function UploadForm() {
 
@@ -28,16 +31,24 @@ export default function UploadForm() {
     }
 
     return (
-        <div>
-            <div className="container">
+        <div className='file-upload-area'>
+            <div className="container text-center">
                 <form action="">
-                    <input type="file" onChange={ changeHandler } />
+                    <label htmlFor="imagefile">
+                        <AiOutlinePlusCircle className='upload-icon' />
+                        <input type="file" onChange={ changeHandler } id='imagefile' />
+                    </label>
+                    {/* show filename */}
+                    {
+                        file && <p> {file.name} </p>
+                    }
                     {/* show error */}
                     {
                         error && <div className='error text-danger'>{ error }</div>
                     }
+                    {/* show progress bar */}
                     {
-                        file && <ProgressBar />
+                        file && <ProgresBar file={ file } setFile={ setFile } />
                     }
                 </form>
             </div>
