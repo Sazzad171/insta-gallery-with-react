@@ -11,6 +11,7 @@ import "./assets/css/style.css"
 // all components import
 import Header from "./components/Header";
 import UploadForm from "./components/UploadForm";
+import ImageGrid from "./components/ImageGrid";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
       <Header />
       <UploadForm />
+      <ImageGrid />
     </div>
   );
 }

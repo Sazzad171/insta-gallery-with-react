@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 // bootstrap
 import { ProgressBar } from 'react-bootstrap';
@@ -14,7 +14,7 @@ export default function ProgresBar({file, setFile}) {
     if (url) {
       setFile(null);
     }
-  }, [url])
+  })
 
   return (
     <div className='progressbar-area'>
