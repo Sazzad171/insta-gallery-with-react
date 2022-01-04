@@ -18,7 +18,9 @@ export default function ProgresBar({file, setFile}) {
 
   return (
     <div className='progressbar-area'>
-      <ProgressBar animated now={progress} />
+      <div className="container">
+        <ProgressBar animated now={progress} />
+      </div>
     </div>
   )
 }
