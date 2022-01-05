@@ -43,3 +43,13 @@ img {
 .progress {
     width: 40%;
 }
+.footer {
+    background-color: #7c7c7c;
+}
+.footer p {
+    color: #fff;
+    font-size: 18px;
+}
+.footer a {
+    color: #213090;
+}

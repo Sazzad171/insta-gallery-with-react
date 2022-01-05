@@ -12,6 +12,8 @@ import "./assets/css/style.css"
 import Header from "./components/Header";
 import UploadForm from "./components/UploadForm";
 import ImageGrid from "./components/ImageGrid";
+import Footer from "./components/Footer";
+import Modal from "./components/Modal";
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
       <Header />
       <UploadForm />
       <ImageGrid />
+      <Modal />
+      <Footer />
     </div>
   );
 }

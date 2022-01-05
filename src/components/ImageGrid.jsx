@@ -5,7 +5,7 @@ export default function ImageGrid() {
     const { docs } = useFirestore('images');
 
     return (
-        <section className='image-grid-area pt-5'>
+        <div className='image-grid-area pt-5'>
             <div className="container">
                 <div className='row'>
                     {
@@ -17,6 +17,6 @@ export default function ImageGrid() {
                     }
                 </div> 
             </div>
-        </section>
+        </div>
     )
 }
