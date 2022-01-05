@@ -1,5 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect } from "react";
 import RcModal from "react-modal";
 
 const customStyles = {
@@ -13,30 +12,34 @@ const customStyles = {
     },
 };
 
-export default function Modal() {
+export default function Modal({ modalData, setModalData, setShowModal }) {
 
+    // modal default state
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
-    function openModal() {
+    // fire modal
+    useEffect(() => {
         setIsOpen(true);
-    }
+    }, []);
 
+    // close modal
     function closeModal() {
         setIsOpen(false);
+        setShowModal(false);
+        setModalData(null);
     }
 
-  return (
-    <div>
-        <button onClick={openModal}>Open Modal</button>
-        <RcModal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-        >
-            <button onClick={closeModal}>close</button>
-            <h2>This is a Modal</h2>
-        </RcModal>
-    </div>
-  );
+    return (
+        <div>
+            <RcModal
+                ariaHideApp={false}
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+            >
+                <button onClick={closeModal}>close</button>
+                <img src={ modalData } alt="" className="img-fluid" />
+            </RcModal>
+        </div>
+    );
 }
