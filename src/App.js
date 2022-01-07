@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
+import { Fragment } from "react";
 
 // for router
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// axios
-import axios from "axios";
 
 // css import
 import "./assets/css/style.css"
@@ -12,6 +10,8 @@ import "./assets/css/style.css"
 import Header from "./components/Header";
 import UploadForm from "./components/UploadForm";
 import ImageGrid from "./components/ImageGrid";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 function App() {
@@ -24,10 +24,30 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <UploadForm />
-      <ImageGrid />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        
+        <Routes>
+          
+          {/* root route */}
+          <Route path="/" exact element={
+            <Fragment>
+              <UploadForm />
+              <ImageGrid />
+            </Fragment>
+            } 
+          />
+
+          {/* about route */}
+          <Route path="about" element={ <About /> } />
+
+          {/* contact route */}
+          <Route path="contact" element={ <Contact /> } />
+
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

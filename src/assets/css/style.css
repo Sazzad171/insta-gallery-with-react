@@ -43,6 +43,19 @@ img {
 .progress {
     width: 40%;
 }
+.image-grid-area .img-item {
+    cursor: pointer;
+}
+.ReactModal__Content {
+    max-width: 80%;
+}
+.ReactModal__Content .btn {
+    font-size: 22px;
+}
+.ReactModal__Content img {
+    width: auto;
+    max-height: 80vh;
+}
 .footer {
     background-color: #7c7c7c;
 }

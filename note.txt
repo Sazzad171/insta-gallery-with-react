@@ -4,3 +4,8 @@ firebase setup
 
 firebase install => npm i firebase
 
+set firebase storage and firestore database
+
+pull the data
+
+added motion framer for animation

@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
+// react modal import
 import RcModal from "react-modal";
+// icon import
+import { AiOutlineCloseCircle } from "react-icons/ai";
+
+import { motion } from "framer-motion/dist/framer-motion"
 
 const customStyles = {
     content: {
@@ -12,7 +17,7 @@ const customStyles = {
     },
 };
 
-export default function Modal({ modalData, setModalData, setShowModal }) {
+export default function Modal({ modalData, setModalData }) {
 
     // modal default state
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -25,21 +30,24 @@ export default function Modal({ modalData, setModalData, setShowModal }) {
     // close modal
     function closeModal() {
         setIsOpen(false);
-        setShowModal(false);
         setModalData(null);
     }
 
     return (
-        <div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <RcModal
                 ariaHideApp={false}
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
             >
-                <button onClick={closeModal}>close</button>
-                <img src={ modalData } alt="" className="img-fluid" />
+                <p className="text-right">
+                    <button className="btn" onClick={closeModal}> <AiOutlineCloseCircle /> </button>
+                </p>
+                <div>
+                    <img src={ modalData } alt="" className="img-fluid" />
+                </div>
             </RcModal>
-        </div>
+        </motion.div>
     );
 }

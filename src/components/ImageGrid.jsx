@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import useFirestore from '../hooks/useFirestore';
 import Modal from "./Modal";
+import { motion } from "framer-motion/dist/framer-motion";
 
 export default function ImageGrid() {
     const { docs } = useFirestore('images');
 
     // state for modal
-    const [showModal, setShowModal] = useState(false);
     const [modalData, setModalData] = useState(null);
 
     // modal data
     const forModal = (url) => {
         setModalData(url);
-        setShowModal(true);
     }
 
     return (
@@ -21,12 +20,14 @@ export default function ImageGrid() {
                 <div className='row'>
                     {
                         docs && docs.map(doc => (
-                            <div className="col-md-4 mb-3" key={doc.id} onClick={ () => forModal(doc.url) }>
-                                <img src={doc.url} alt="" className='img-fluid h-100' />
-                            </div>
+                            <motion.div className="col-md-4 mb-3" key={doc.id} onClick={ () => forModal(doc.url) }
+                                whileHover={{ opacity: 0.8 }}
+                            >
+                                <img src={doc.url} alt="" className='img-fluid img-item h-100' />
+                            </motion.div>
                         ))
                     }
-                    { showModal && <Modal modalData={ modalData } setModalData={ setModalData } setShowModal={ setShowModal } /> }
+                    { modalData && <Modal modalData={ modalData } setModalData={ setModalData } /> }
                     
                 </div> 
             </div>
