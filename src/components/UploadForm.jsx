@@ -33,6 +33,13 @@ export default function UploadForm() {
     return (
         <div className='file-upload-area'>
             <div className="container text-center">
+                <div className="heading-area py-md-4 py-3">
+                    <div className="container">
+                        <h1 className='text-center text-red'>Your Picture Collections</h1>
+                        <p className='text-center mb-0'>Here is your all picture collections which you are uploaded.</p>
+                    </div>
+                </div>
+
                 <form action="">
                     <label htmlFor="imagefile">
                         <AiOutlinePlusCircle className='upload-icon' />

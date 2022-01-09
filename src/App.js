@@ -16,12 +16,6 @@ import Footer from "./components/Footer";
 
 function App() {
 
-  // state
-  
-
-  // fetch initial data
-  
-
   return (
     <div className="App">
       <BrowserRouter>
